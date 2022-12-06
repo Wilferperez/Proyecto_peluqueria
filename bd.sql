@@ -19,6 +19,49 @@
 CREATE DATABASE IF NOT EXISTS `peluqueria` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `peluqueria`;
 
+-- Volcando estructura para tabla peluqueria.citas
+CREATE TABLE IF NOT EXISTS `citas` (
+  `idCita` int(11) NOT NULL AUTO_INCREMENT,
+  `idServicio` int(11) NOT NULL,
+  `idCliente` int(11) NOT NULL,
+  `fechaReserva` date NOT NULL,
+  `hora` time NOT NULL,
+  `idEmpleado` int(11) NOT NULL,
+  `codigoReserva` int(11) NOT NULL,
+  PRIMARY KEY (`idCita`),
+  KEY `FK_usuarioCitas` (`idCliente`),
+  KEY `FK_servicioCitas` (`idServicio`),
+  KEY `FK_empleadoCitas` (`idEmpleado`),
+  CONSTRAINT `FK_empleadoCitas` FOREIGN KEY (`idEmpleado`) REFERENCES `empleados` (`idEmpleado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_servicioCitas` FOREIGN KEY (`idServicio`) REFERENCES `servicios` (`idServicio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_usuarioCitas` FOREIGN KEY (`idCliente`) REFERENCES `usuarios` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla peluqueria.empleados
+CREATE TABLE IF NOT EXISTS `empleados` (
+  `idEmpleado` int(11) NOT NULL AUTO_INCREMENT,
+  `idServicio` int(11) NOT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `correo` varchar(50) NOT NULL DEFAULT '',
+  `celular` double NOT NULL DEFAULT 0,
+  PRIMARY KEY (`idEmpleado`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla peluqueria.servicios
+CREATE TABLE IF NOT EXISTS `servicios` (
+  `idServicio` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(150) NOT NULL,
+  `duracion` int(11) DEFAULT NULL COMMENT 'tiempo en minutos\r\n',
+  `precio` int(11) DEFAULT NULL COMMENT 'Precio en pesos',
+  PRIMARY KEY (`idServicio`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+
+-- La exportación de datos fue deseleccionada.
+
 -- Volcando estructura para tabla peluqueria.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `idCliente` int(6) NOT NULL AUTO_INCREMENT,
@@ -28,11 +71,9 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `correo` varchar(100) NOT NULL,
   `contraseña` varchar(15) NOT NULL,
   PRIMARY KEY (`idCliente`,`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla peluqueria.usuarios: ~1 rows (aproximadamente)
-INSERT INTO `usuarios` (`idCliente`, `cedula`, `nombre`, `celular`, `correo`, `contraseña`) VALUES
-	(1, 1143867299, 'wilfer andres perez moreno', 317759559, 'wilferperezm@gmail.com', 'perez7299');
+-- La exportación de datos fue deseleccionada.
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
