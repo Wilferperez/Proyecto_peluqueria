@@ -42,6 +42,9 @@
             <p class="sexto_mensaje">Lorem ipsum available but the majority have
                 suffered alteration in some form.
             </p>
+            <div class="boton">
+                <button class="segundo_service" onclick="document.location.href='index.php?page=guardarEmpleado'">Registar Empleado</button>
+            </div>
             <div class="fotos">
 
                 <div class="foto_texto7">

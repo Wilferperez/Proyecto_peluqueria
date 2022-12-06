@@ -12,7 +12,7 @@
 <body>
     <div class="login-box">
         <img class="avatar" src="public/img/logo.jpg" alt="logo de peluqueria">
-        <h1>peluqueria</h1>
+        <h1>Peluqueria</h1>
         <form action="<?php echo urlsite ?>index.php?page=loginauth" method="post">
             <!--USERNAME-->
             <!-- <label for="username">Username</label>
@@ -35,8 +35,8 @@
             <!-- <a href=''>LOGIN</a> -->
 
 
-            <a href="#">Lost your password</a><br>
-            <a href="#">Don`t have an account? </a>
+            <a href="#">Recuperar contraseña</a><br>
+            <a href="index.php?page=register">Registrarse </a>
         </form>
     </div>
 

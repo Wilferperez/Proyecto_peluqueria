@@ -40,7 +40,12 @@
             <p class="cuarto_titulo">Title Here</p>
             <p class="cuarto_mensaje">Lorem ipsum available but the majority have
                 suffered alteration in some form.
+                
             </p>
+
+            <div class="boton">
+                <button class="segundo_service" onclick="document.location.href='index.php?page=registrarServicio'">Registrar Servicio</button>
+            </div>
             <div class="fotos">
 
                 <div class="foto_texto4">

@@ -31,4 +31,23 @@ class LoginController
     session_destroy();
     header('location:' . urlsite);
   }
+
+  public function guardarUsuario()
+  {
+    $_modelo = new Login();
+
+    $_cedula = trim($_POST['cedula']);
+    $_nombre = trim($_POST['nombre']);
+    $_apellido = trim($_POST['apellido']);
+    $_correo = trim($_POST['correo']);
+    $_celular = trim($_POST['celular']);
+    $_clave = trim($_POST['clave']);
+
+    $_usuarioGuardado = $_modelo->registrarUsuario($_cedula, $_nombre . ' ' . $_apellido, $_celular, $_correo, $_clave);
+    if ($_usuarioGuardado) {
+      header('location:' . urlsite . "index.php?page=admin");
+    } else {
+      header('location:' . urlsite . "index.php?msg=usuario no guardado");
+    }
+  }
 }

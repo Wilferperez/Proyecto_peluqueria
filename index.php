@@ -41,4 +41,32 @@ switch ($page) {
   case 'contact':
     require "vista/admin/contact.php";
     break;
+
+  case 'register':
+    require "vista/front/registerCliente.php";
+    break;
+
+  case 'guardarUsuario':
+    require "controlador/LoginController.php";
+    $loginController = new LoginController();
+    $loginController->guardarUsuario();
+    break;
+
+
+  case 'registrarServicio':
+    require "vista/front/registrarServicio.php";
+    break;
+
+    case 'guardarServicio':
+      require "controlador/ServicioController.php";
+      $servicioController = new ServicioController();
+      $servicioController->guardarServicio();
+      break;
+  
+
+  case 'guardarEmpleado':
+    require "vista/front/registarEmpleado.php";
+    break;
+
+    
 }
